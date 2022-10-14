@@ -398,15 +398,15 @@ fn mcmpm<const I: usize, const J: usize>(l: &[[f32; I]; J], r: &[[f32; I]; J], e
 }
 
 fn rotation_matrix<const I: usize>(quat: &[f32; I], out: &mut [[f32; 3]; 3]) {
-    out[0][0] = quat[0].powi(2) + quat[1].powi(2) - quat[2].powi(2) - quat[3].powi(2);
+    out[0][0] = quat[0]*quat[0] + quat[1]*quat[1] - quat[2]*quat[2] - quat[3]*quat[3];
     out[0][1] = 2.0 * (quat[1] * quat[2] - quat[0] * quat[3]);
     out[0][2] = 2.0 * (quat[1] * quat[3] + quat[0] * quat[2]);
     out[1][0] = 2.0 * (quat[1] * quat[2] + quat[0] * quat[3]);
-    out[1][1] = quat[0].powi(2) - quat[1].powi(2) + quat[2].powi(2) - quat[3].powi(2);
+    out[1][1] = quat[0]*quat[0] - quat[1]*quat[1] + quat[2]*quat[2] - quat[3]*quat[3];
     out[1][2] = 2.0 * (quat[2] * quat[3] - quat[0] * quat[1]);
     out[2][0] = 2.0 * (quat[1] * quat[3] - quat[0] * quat[2]);
     out[2][1] = 2.0 * (quat[2] * quat[3] + quat[0] * quat[1]);
-    out[2][2] = quat[0].powi(2) - quat[1].powi(2) - quat[2].powi(2) + quat[3].powi(2);
+    out[2][2] = quat[0]*quat[0] - quat[1]*quat[1] - quat[2]*quat[2] + quat[3]*quat[3];
 }
 
 //x: [[f32; rows]; cols]

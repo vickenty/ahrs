@@ -154,3 +154,13 @@ fn test_mmul() {
     mmulm_inc(&a, &b, &mut o);
     assert_eq!(o, [[3., 2., 5., 5., 7.]]);
 }
+
+pub trait Sqrt {
+    fn sqrt(&self) -> Self;
+}
+
+impl Sqrt for f32 {
+    fn sqrt(&self) -> f32 {
+        libm::sqrtf(*self)
+    }
+}
