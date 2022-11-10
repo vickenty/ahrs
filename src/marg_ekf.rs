@@ -4,7 +4,7 @@ use crate::mat_utils::*;
 /// Extended Kalman Filter for attitude estimation from MARG data
 pub struct MargEkf {
     /// Internal state: rotation quaternion and gyroscope biases
-    state: [[f32; 7]; 1],
+    pub state: [[f32; 7]; 1],
     /// Predicted gravity and magnetic vectors
     predicted_accel_mag: [[f32; 6]; 1],
     /// A measure of the estimated accuracy of the state estimate
