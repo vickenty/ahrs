@@ -1,0 +1,12 @@
+[package]
+name = "ahrs-py"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "ahrs_py"
+crate-type = [ "cdylib" ]
+
+[dependencies]
+pyo3 = { version="*", features = [ "extension-module" ] }
+ahrs = { path=".." }
