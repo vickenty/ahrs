@@ -174,19 +174,21 @@ impl MargEkf {
     }
 
     fn mag_from_raw(&self, raw: [[f32; 3]; 1]) -> [[f32; 3]; 1] {
-        // TODO: those two constants should be part of something else than this crate
-        let a_inv = flip([
-            [2e-03, -1e-04, -1e-06],
-            [-1e-04, 1e-03, 1e-05],
-            [-1e-06, 1e-05, 1e-03]
-        ]);
-        let b = [[80., 37., 105.]];
+        // // TODO: those two constants should be part of something else than this crate
+        // let a_inv = flip([
+        //     [2e-03, -1e-04, -1e-06],
+        //     [-1e-04, 1e-03, 1e-05],
+        //     [-1e-06, 1e-05, 1e-03]
+        // ]);
+        // let b = [[80., 37., 105.]];
 
-        /*
-        let gauss_raw = a_inv.dot(&(raw.reversed_axes() - b));
-        */
-        let mut gauss_raw = [[0.; 3]; 1];
-        mmulm_inc(&a_inv, &msubm(&raw, &b), &mut gauss_raw);
+        // /*
+        // let gauss_raw = a_inv.dot(&(raw.reversed_axes() - b));
+        // */
+        // let mut gauss_raw = [[0.; 3]; 1];
+        // mmulm_inc(&a_inv, &msubm(&raw, &b), &mut gauss_raw);
+
+        let gauss_raw = raw;
 
         /*
         let mut gauss_n = rotation_matrix(&self.state).dot(&gauss_raw);
