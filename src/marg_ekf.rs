@@ -6,7 +6,7 @@ pub struct MargEkf {
     /// Internal state: rotation quaternion and gyroscope biases
     pub state: [[f32; 7]; 1],
     /// Predicted gravity and magnetic vectors
-    predicted_accel_mag: [[f32; 6]; 1],
+    pub predicted_accel_mag: [[f32; 6]; 1],
     /// A measure of the estimated accuracy of the state estimate
     predicted_estimate_covariance: [[f32; 7]; 7],
     /// Joint variability of process noise
