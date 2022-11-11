@@ -9,4 +9,5 @@ crate-type = [ "cdylib" ]
 
 [dependencies]
 pyo3 = { version="*", features = [ "extension-module" ] }
-ahrs = { path=".." }
+ahrs_fork = { path="..", package="ahrs" }
+ahrs_bofh = { path="../../ahrs-bofh", package="ahrs" }
